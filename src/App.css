@@ -1,3 +1,20 @@
 .App {
   text-align: center;
 }
+
+.active{
+  background-color: #42a5f5;
+}
+
+.movie-card .MuiCardHeader-title{
+  font-size: 1rem;;
+  line-height: 1rem;
+}
+
+.movie-card .MuiCardHeader-subheader{
+  font-size: 0.75rem;;
+}
+
+.movie-card .MuiCardHeader-root{
+  padding-bottom: 5px;
+}
