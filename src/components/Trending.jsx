@@ -1,46 +1,56 @@
-import {
-	Card,
-	CardHeader,
-	CardContent,
-	CardMedia,
-	Container,
-	Typography,
-} from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
+import { Card, CardHeader, CardMedia, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import MovieCard from "./MovieCard.jsx";
 import FetchDataFromApi from "./utils/fetcher.js";
 
 function Trending() {
 	const [movies, setMovies] = useState([]);
 
-	const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
-
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await FetchDataFromApi("movie", "week");
-			console.log(data.results);
 			setMovies(data.results);
-			console.log(movies);
 		};
 		fetchData();
 	}, []);
 
+	const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
+
+	/* <MovieCard key={item.id} movie={item} /> 
+	GET THIS TO WORK!
+	*/
+
 	return (
-		<Grid2
-			container
-			spacing={{ xs: 2, md: 3 }}
-			columns={{ xs: 1, sm: 8, md: 12 }}
-		>
-			{movies.length > 0 ? (
-				movies.map((movie, index) => (
-					<Grid2 xs={1} sm={2} md={2} key={index}>
+		<>
+			<Typography variant='h2'>Trending movies this week</Typography>
+			<Grid2
+				container
+				spacing={{ xs: 2, md: 3 }}
+				columns={{ xs: 1, sm: 8, md: 12 }}
+				sx={{ paddingTop: "15px" }}
+			>
+				{movies.map((movie) => (
+					<Grid2
+						sx={{ minHeight: "200px" }}
+						key={movie.id}
+						xs={1}
+						sm={2}
+						md={2}
+					>
 						<Card className='movie-card'>
-							<CardHeader
-								title={`${movie.title}`}
-								titleTypographyProps={{ variant: "h6" }}
-								subheader={`Rating: ${movie.vote_average}`}
-							/>
 							<div style={{ position: "relative" }}>
+								<CardHeader
+									title={`${movie.title}`}
+									titleTypographyProps={{ variant: "h6" }}
+									subheader={`Rating: ${movie.vote_average}`}
+									sx={{
+										position: "absolute",
+										color: "white",
+										top: 0,
+										left: "0",
+									}}
+								/>
 								<CardMedia
 									component='img'
 									image={`${imageBaseUrl}${movie.poster_path}`}
@@ -49,9 +59,10 @@ function Trending() {
 									sx={{
 										position: "absolute",
 										color: "white",
-										bottom: 3,
+										bottom: 0,
 										left: "50%",
 										transform: "translateX(-50%)",
+										fontSize: "0.7rem",
 									}}
 									variant='subtitle2'
 								>
@@ -60,11 +71,9 @@ function Trending() {
 							</div>
 						</Card>
 					</Grid2>
-				))
-			) : (
-				<div>Loading</div>
-			)}
-		</Grid2>
+				))}
+			</Grid2>
+		</>
 	);
 }
 

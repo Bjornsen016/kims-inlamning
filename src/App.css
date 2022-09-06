@@ -12,9 +12,11 @@
 }
 
 .movie-card .MuiCardHeader-subheader{
-  font-size: 0.75rem;;
+  font-size: 0.75rem;
+  color: white;
 }
 
 .movie-card .MuiCardHeader-root{
-  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
 }

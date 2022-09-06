@@ -42,15 +42,16 @@ function App() {
 					<Header colorMode={colorMode} />
 
 					{/* Main content that is currently showing */}
-					<Container maxWidth="lg">
+					<Container maxWidth='lg'>
 						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/top100" element={<ToppOneHundred />} />
-							<Route path="/trending" element={<Trending />} />
+							<Route path='/' element={<Home />} />
+							<Route path='/top100' element={<ToppOneHundred />} />
+							<Route path='/trending' element={<Trending />} />
 							{/* Have to be last to catch unknown paths */}
-							<Route path="*" element={<Error />} />
+							<Route path='*' element={<Error />} />
 						</Routes>
 					</Container>
+					<footer>Footer here</footer>
 				</ThemeProvider>
 			</ColorModeContext.Provider>
 		</BrowserRouter>
