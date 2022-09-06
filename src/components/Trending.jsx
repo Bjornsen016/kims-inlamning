@@ -1,19 +1,27 @@
 import Grid2 from "@mui/material/Unstable_Grid2";
-import { Card, CardHeader, CardMedia, Typography } from "@mui/material";
+import { Button, Card, CardHeader, CardMedia, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard.jsx";
 import FetchDataFromApi from "./utils/fetcher.js";
 
 function Trending() {
 	const [movies, setMovies] = useState([]);
+	const [page, setPage] = useState(1);
+
+	const fetchData = async (pageNumber) => {
+		const data = await FetchDataFromApi("movie", "week", pageNumber);
+		setMovies(data.results);
+	};
 
 	useEffect(() => {
-		const fetchData = async () => {
-			const data = await FetchDataFromApi("movie", "week");
-			setMovies(data.results);
-		};
-		fetchData();
+		fetchData(page);
 	}, []);
+
+	const fetchNextPage = () => {
+		fetchData(page + 1);
+		setPage(page + 1);
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	};
 
 	const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
 
@@ -27,7 +35,7 @@ function Trending() {
 			<Grid2
 				container
 				spacing={{ xs: 2, md: 3 }}
-				columns={{ xs: 1, sm: 8, md: 12 }}
+				columns={{ xs: 1, sm: 8, md: 10 }}
 				sx={{ paddingTop: "15px" }}
 			>
 				{movies.map((movie) => (
@@ -73,6 +81,8 @@ function Trending() {
 					</Grid2>
 				))}
 			</Grid2>
+			<Typography>{`Page: ${page}`}</Typography>
+			<Button onClick={fetchNextPage}>NEXT PAGE</Button>
 		</>
 	);
 }
