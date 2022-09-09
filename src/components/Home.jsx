@@ -16,13 +16,10 @@ function Home() {
 
 	const searchInput = (e) => {
 		setsearchWords(e.target.value);
-		console.log(searchWords);
 	};
 
 	const handleSearch = (e) => {
 		e.preventDefault();
-		console.log("Submitted");
-		console.log(searchWords);
 		fetchData(1);
 	};
 
@@ -45,7 +42,7 @@ function Home() {
 	};
 
 	return (
-		<>
+		<div>
 			<Typography variant='h1'>Welcome HOME</Typography>
 			<div>
 				<form onSubmit={handleSearch}>
@@ -72,7 +69,7 @@ function Home() {
 			<Grid2
 				container
 				spacing={{ xs: 2, md: 3 }}
-				columns={{ xs: 1, sm: 8, md: 10 }}
+				columns={{ xs: 2, sm: 8, md: 10 }}
 				sx={{ paddingTop: "15px" }}
 			>
 				{movies?.map((movie) => (
@@ -84,7 +81,6 @@ function Home() {
 			) : (
 				<Pagination
 					sx={{ paddingTop: "10px", paddingBottom: "10px" }}
-					boundaryCount={2}
 					siblingCount={2}
 					count={totalPages}
 					variant='outlined'
@@ -92,7 +88,7 @@ function Home() {
 					onChange={fetchNextPage}
 				/>
 			)}
-		</>
+		</div>
 	);
 }
 

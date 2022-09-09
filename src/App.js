@@ -7,12 +7,14 @@ import {
 	createTheme,
 	Container,
 } from "@mui/material";
+
 import {
 	Home,
 	Error,
 	Header,
 	TrendingTvShows,
 	TrendingMovies,
+	Footer,
 } from "./components";
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -48,7 +50,15 @@ function App() {
 					<Header colorMode={colorMode} />
 
 					{/* Main content that is currently showing */}
-					<Container maxWidth='lg'>
+					<Container
+						style={{
+							display: "flex",
+							height: "95vh",
+							flexDirection: "column",
+							alignItems: "center",
+							justifyContent: "space-between",
+						}}
+					>
 						<Routes>
 							<Route path='/' element={<Home />} />
 							<Route path='/trending/tvshows' element={<TrendingTvShows />} />
@@ -56,8 +66,8 @@ function App() {
 							{/* Have to be last to catch unknown paths */}
 							<Route path='*' element={<Error />} />
 						</Routes>
+						<Footer />
 					</Container>
-					<footer>Footer here</footer>
 				</ThemeProvider>
 			</ColorModeContext.Provider>
 		</BrowserRouter>

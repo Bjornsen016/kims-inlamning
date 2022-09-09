@@ -45,7 +45,7 @@ function TrendingTvShows() {
 			<Grid2
 				container
 				spacing={{ xs: 2, md: 3 }}
-				columns={{ xs: 1, sm: 8, md: 10 }}
+				columns={{ xs: 2, sm: 8, md: 10 }}
 				sx={{ paddingTop: "15px" }}
 			>
 				{shows?.map((tvShow) => (
@@ -54,7 +54,6 @@ function TrendingTvShows() {
 			</Grid2>
 			<Pagination
 				sx={{ paddingTop: "10px", paddingBottom: "10px" }}
-				boundaryCount={2}
 				siblingCount={2}
 				count={totalPages}
 				page={page}

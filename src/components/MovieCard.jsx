@@ -1,4 +1,10 @@
-import { Card, CardHeader, CardMedia, Typography } from "@mui/material";
+import {
+	Card,
+	CardHeader,
+	CardMedia,
+	Typography,
+	Tooltip,
+} from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 
 function MovieCard({ movie }) {
@@ -8,42 +14,44 @@ function MovieCard({ movie }) {
 
 	return (
 		<Grid2 sx={{ minHeight: "200px" }} key={movie.id} xs={1} sm={2} md={2}>
-			<Card className='movie-card'>
-				<div style={{ position: "relative" }}>
-					<CardHeader
-						title={`${movie.title}`}
-						titleTypographyProps={{ variant: "h6" }}
-						subheader={`Rating: ${movie.vote_average}`}
-						sx={{
-							position: "absolute",
-							color: "white",
-							top: 0,
-							left: "0",
-						}}
-					/>
-					<CardMedia
-						component='img'
-						image={
-							movie.poster_path == null
-								? `${imageNotFoundPath}`
-								: `${imageBaseUrl}${movie.poster_path}`
-						}
-					/>
-					<Typography
-						sx={{
-							position: "absolute",
-							color: "white",
-							bottom: 0,
-							left: "50%",
-							transform: "translateX(-50%)",
-							fontSize: "0.7rem",
-						}}
-						variant='subtitle2'
-					>
-						{movie.release_date}
-					</Typography>
-				</div>
-			</Card>
+			<Tooltip title={movie.overview}>
+				<Card className='movie-card'>
+					<div style={{ position: "relative" }}>
+						<CardHeader
+							title={`${movie.title}`}
+							titleTypographyProps={{ variant: "h6" }}
+							subheader={`Rating: ${movie.vote_average}`}
+							sx={{
+								position: "absolute",
+								color: "white",
+								top: 0,
+								left: "0",
+							}}
+						/>
+						<CardMedia
+							component='img'
+							image={
+								movie.poster_path == null
+									? `${imageNotFoundPath}`
+									: `${imageBaseUrl}${movie.poster_path}`
+							}
+						/>
+						<Typography
+							sx={{
+								position: "absolute",
+								color: "white",
+								bottom: 0,
+								left: "50%",
+								transform: "translateX(-50%)",
+								fontSize: "0.7rem",
+							}}
+							variant='subtitle2'
+						>
+							{movie.release_date}
+						</Typography>
+					</div>
+				</Card>
+			</Tooltip>
 		</Grid2>
 	);
 }
