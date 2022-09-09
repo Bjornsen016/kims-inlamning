@@ -7,7 +7,13 @@ import {
 	createTheme,
 	Container,
 } from "@mui/material";
-import { Home, Error, Header, ToppOneHundred, Trending } from "./components";
+import {
+	Home,
+	Error,
+	Header,
+	TrendingTvShows,
+	TrendingMovies,
+} from "./components";
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -45,8 +51,8 @@ function App() {
 					<Container maxWidth='lg'>
 						<Routes>
 							<Route path='/' element={<Home />} />
-							<Route path='/top100' element={<ToppOneHundred />} />
-							<Route path='/trending' element={<Trending />} />
+							<Route path='/trending/tvshows' element={<TrendingTvShows />} />
+							<Route path='/trending/movies' element={<TrendingMovies />} />
 							{/* Have to be last to catch unknown paths */}
 							<Route path='*' element={<Error />} />
 						</Routes>

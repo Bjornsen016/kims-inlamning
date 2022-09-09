@@ -1,19 +1,17 @@
 import { Card, CardHeader, CardMedia, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 
-function MovieCard({ movie }) {
+function MovieCard({ tvShow }) {
 	const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
-	const imageNotFoundPath =
-		"https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
 
 	return (
-		<Grid2 sx={{ minHeight: "200px" }} key={movie.id} xs={1} sm={2} md={2}>
+		<Grid2 sx={{ minHeight: "200px" }} key={tvShow.id} xs={1} sm={2} md={2}>
 			<Card className='movie-card'>
 				<div style={{ position: "relative" }}>
 					<CardHeader
-						title={`${movie.title}`}
+						title={`${tvShow.name}`}
 						titleTypographyProps={{ variant: "h6" }}
-						subheader={`Rating: ${movie.vote_average}`}
+						subheader={`Rating: ${tvShow.vote_average}`}
 						sx={{
 							position: "absolute",
 							color: "white",
@@ -23,11 +21,7 @@ function MovieCard({ movie }) {
 					/>
 					<CardMedia
 						component='img'
-						image={
-							movie.poster_path == null
-								? `${imageNotFoundPath}`
-								: `${imageBaseUrl}${movie.poster_path}`
-						}
+						image={`${imageBaseUrl}${tvShow.poster_path}`}
 					/>
 					<Typography
 						sx={{
@@ -40,7 +34,7 @@ function MovieCard({ movie }) {
 						}}
 						variant='subtitle2'
 					>
-						{movie.release_date}
+						{tvShow.first_air_date}
 					</Typography>
 				</div>
 			</Card>
