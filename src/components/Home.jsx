@@ -43,9 +43,12 @@ function Home() {
 
 	return (
 		<div>
-			<Typography variant='h1'>Welcome HOME</Typography>
-			<div>
-				<form onSubmit={handleSearch}>
+			<Typography variant='h2'>Welcome to the movie searcher</Typography>
+			<div style={{ display: "flex", justifyContent: "center" }}>
+				<form
+					onSubmit={handleSearch}
+					style={{ display: "flex", alignContent: "center" }}
+				>
 					<TextField
 						size='small'
 						id='searchField'
@@ -61,7 +64,12 @@ function Home() {
 							),
 						}}
 					/>
-					<Button type='submit' variant='outlined' color='primary'>
+					<Button
+						style={{ marginLeft: "5px" }}
+						type='submit'
+						variant='outlined'
+						color='primary'
+					>
 						Search
 					</Button>
 				</form>

@@ -40,8 +40,8 @@ function TrendingMovies() {
 	};
 
 	return (
-		<div>
-			<Typography variant='h5'>Trending movies this week</Typography>
+		<>
+			<Typography variant='h3'>Trending movies this week</Typography>
 			<Grid2
 				container
 				spacing={{ xs: 2, md: 3 }}
@@ -53,14 +53,14 @@ function TrendingMovies() {
 				))}
 			</Grid2>
 			<Pagination
-				sx={{ paddingTop: "10px", paddingBottom: "10px" }}
+				sx={{ paddingTop: "15px", paddingBottom: "10px" }}
 				siblingCount={2}
 				count={totalPages}
 				page={page}
 				onChange={fetchNextPage}
 				variant='outlined'
 			/>
-		</div>
+		</>
 	);
 }
 

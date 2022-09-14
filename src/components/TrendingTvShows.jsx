@@ -41,7 +41,7 @@ function TrendingTvShows() {
 
 	return (
 		<>
-			<Typography variant='h5'>Trending Tv shows this week</Typography>
+			<Typography variant='h3'>Trending Tv shows this week</Typography>
 			<Grid2
 				container
 				spacing={{ xs: 2, md: 3 }}
@@ -53,7 +53,7 @@ function TrendingTvShows() {
 				))}
 			</Grid2>
 			<Pagination
-				sx={{ paddingTop: "10px", paddingBottom: "10px" }}
+				sx={{ paddingTop: "15px", paddingBottom: "10px" }}
 				siblingCount={2}
 				count={totalPages}
 				page={page}
