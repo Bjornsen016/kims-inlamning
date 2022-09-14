@@ -20,8 +20,12 @@ If you hover over a movie you will be able to see the summary of the movie
   
 ![Trending tv shows](pictures-for-readme/Trending-tv-with-darkmode.jpg)
 
+You are able to change to darkmode in the upper right corner. This state is persistent if you go to another view. 
+
 ### Trending tv shows
 
 - '/trending/tvshows (Trending tv shows this week)
 
 ![Trending movies](pictures-for-readme/Trending-movies-with-pagination.jpg)
+
+There is pagination on all views that load the next 20 movies/tv shows in the search. 
