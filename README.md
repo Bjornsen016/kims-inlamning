@@ -20,7 +20,7 @@ If you hover over a movie you will be able to see the summary of the movie
   
 ![Trending tv shows](pictures-for-readme/Trending-tv-with-darkmode.jpg)
 
-You are able to change to darkmode in the upper right corner. This state is persistent if you go to another view. 
+You are able to change to darkmode in the upper right corner. This state is persistent if you go to another view.
 
 ### Trending tv shows
 
@@ -28,4 +28,8 @@ You are able to change to darkmode in the upper right corner. This state is pers
 
 ![Trending movies](pictures-for-readme/Trending-movies-with-pagination.jpg)
 
-There is pagination on all views that load the next 20 movies/tv shows in the search. 
+There is pagination on all views that load the next 20 movies/tv shows in the search.
+
+![Trending movies](pictures-for-readme/Drawer.jpg)
+
+To navigate through the app you click in the upper left corner to get a Drawer with links.
